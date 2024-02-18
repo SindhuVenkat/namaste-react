@@ -5,8 +5,11 @@
 }
 
 .logo{
-    width: 200px;
-   padding-left: 10px;
+    width: 100px;
+   padding:5px 10px;
+   height: 68px;
+
+   margin-bottom: 5px;
 }
 
 .logo img{
@@ -29,10 +32,10 @@
 
 .res-card {
     width: 200px;
-    background-color: lightgray;
+    background-color: #f0f0f0;
     margin: 10px;
     padding: 5px;
-    height: 300px;
+    height: 400px;
 }
 
 .res-card img{
@@ -44,4 +47,17 @@
     display: flex;
     flex-wrap: wrap;
     padding: 10px;
+}
+
+/* Shimmer UI */
+
+.card-container{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.card{
+    width: 200;
+    height: 400px;
+    background-color: #f0f0f0;
 }
