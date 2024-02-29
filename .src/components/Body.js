@@ -1,6 +1,8 @@
 import RestoCard from "./RestrauntCard.js";
 import { useState, useEffect } from "react";
 import ShimmerUI from "./ShimmerUI.js";
+import { Link } from "react-router-dom";
+import useOnlinestatus from "../../utls/useOnlineStatus.js";
 
 const Body = () => {
 
@@ -12,7 +14,7 @@ const Body = () => {
 //    return  res?.info.avgRating > 4.3;
 // })
 
-
+const onlinestatus = useOnlinestatus()
 
 useEffect(()=>{
  
@@ -31,7 +33,8 @@ console.error(e)
 }
 }
 
-
+if(onlinestatus === false)
+return <h1>Check your internet connection and try again</h1>
 
 return listRestraunt.length === 0 ? <ShimmerUI></ShimmerUI> : (
         <div className="body">
@@ -44,19 +47,18 @@ return listRestraunt.length === 0 ? <ShimmerUI></ShimmerUI> : (
             <button className="filter-btn"
             onClick={() =>{
 
-                console.log(searchText)
+             
                 const filteredRestraunt = listRestraunt.filter(res => res.info.name.toLowerCase().includes(searchText.toLowerCase()))
-                    console.log(filteredRestraunt)
+                 
                     setFilterRestraunt(filteredRestraunt)
             } 
             }
             >search</button>
             </div>
             <div className="resto-container">
-                {console.log(filterRestraunt)}
+             
             {filterRestraunt.map((res) =>{
-            return <RestoCard key={res.info.id} resData ={res}/>
-
+             return <Link to={'/restraunt/'+res.info.id}><RestoCard  resData ={res}/></Link>
             })}
             </div>
         </div>

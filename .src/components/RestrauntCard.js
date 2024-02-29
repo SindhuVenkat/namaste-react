@@ -2,7 +2,7 @@ import { CDN_URL } from "../../utls/Constants";
 
 const RestoCard = (props) => {
     const {resData} = props
-    const {name, cuisines, avgRating, deliveryTime, cloudinaryImageId, areaName} = resData?.info
+    const {name, cuisines, avgRating, deliveryTime, cloudinaryImageId, areaName,id} = resData?.info
     return(
         <div className="card-container">
         <div className="res-card">
@@ -12,6 +12,7 @@ const RestoCard = (props) => {
             <h5>{avgRating}</h5>
             <h5> {deliveryTime} mins</h5>
             <h5>{areaName}</h5>
+            <h5>{id}</h5>
         </div>
         </div>
     )
