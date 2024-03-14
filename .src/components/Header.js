@@ -12,7 +12,7 @@ const Header = () => {
         </div>
         <div className="nav-items">
             <ul>
-                <li>{onlinestatus ? 'green' : 'red'}</li>
+                <li>Onlinestatus : {onlinestatus ? 'green' : 'red'}</li>
                 <li>
 
                     <Link to='/'>Home</Link></li>

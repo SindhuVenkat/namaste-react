@@ -1,4 +1,4 @@
-import RestoCard from "./RestrauntCard.js";
+import RestoCard, {Promotedlabel} from "./RestrauntCard.js";
 import { useState, useEffect } from "react";
 import ShimmerUI from "./ShimmerUI.js";
 import { Link } from "react-router-dom";
@@ -16,6 +16,8 @@ const Body = () => {
 
 const onlinestatus = useOnlinestatus()
 
+const Promotedcomponent = Promotedlabel(RestoCard)
+
 useEffect(()=>{
  
 fetchData()
@@ -32,6 +34,8 @@ catch(e){
 console.error(e)
 }
 }
+
+console.log(listRestraunt,'list')
 
 if(onlinestatus === false)
 return <h1>Check your internet connection and try again</h1>
@@ -58,8 +62,7 @@ return listRestraunt.length === 0 ? <ShimmerUI></ShimmerUI> : (
             <div className="resto-container">
              
             {filterRestraunt.map((res) =>{
-             return <Link to={'/restraunt/'+res.info.id}><RestoCard  resData ={res}/></Link>
-            })}
+             return <Link to={'/restraunt/'+res.info.id}>{res.info.isOpen ?(<Promotedcomponent resData = {res}/>) : (<RestoCard  resData ={res}/>)}</Link>})}
             </div>
         </div>
 )

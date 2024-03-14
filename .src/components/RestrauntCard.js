@@ -18,4 +18,15 @@ const RestoCard = (props) => {
     )
 }
 
+export const Promotedlabel = (RestoCard) => {
+ return(props)=>{
+    return(
+        <div>
+            <label>Opened</label>
+            <RestoCard {...props}/>
+        </div>
+    )
+ }
+}
+
 export default RestoCard;

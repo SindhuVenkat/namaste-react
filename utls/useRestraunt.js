@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 const useRestraunt = (resId) =>{
     const[resMenu, setresmenu] = useState([])
     const[resInfo, setresinfo] = useState([])
+    const[resCat, setresCat] = useState([])
     
     useEffect(()=>{
      fetchData()
@@ -19,14 +20,15 @@ const useRestraunt = (resId) =>{
       setresinfo(json.data.cards[0].card.card.info)
       setresmenu(json.data.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards)
       console.log(json.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards, 'itemcards')
-      console.log(json,'cards')
+      console.log(json,'cards recommended')
+      setresCat(json.data.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
     }
     catch(e){
         console.error(e)
     }
     }
     
-    return [resInfo, resMenu]
+    return [resInfo, resMenu, resCat]
 }
 
 export default useRestraunt;
