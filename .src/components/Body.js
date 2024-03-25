@@ -1,8 +1,9 @@
 import RestoCard, {Promotedlabel} from "./RestrauntCard.js";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import ShimmerUI from "./ShimmerUI.js";
 import { Link } from "react-router-dom";
 import useOnlinestatus from "../../utls/useOnlineStatus.js";
+import UserContext from "../../utls/UserContext.js";
 
 const Body = () => {
 
@@ -13,6 +14,8 @@ const Body = () => {
 // const filterData = allrestraunts.filter((res) =>{
 //    return  res?.info.avgRating > 4.3;
 // })
+
+const {loggedInuser, setUserName} = useContext(UserContext)
 
 const onlinestatus = useOnlinestatus()
 
@@ -59,6 +62,13 @@ return listRestraunt.length === 0 ? <ShimmerUI></ShimmerUI> : (
             }
             >search</button>
             </div>
+            <label>UserName: </label>
+            <input
+            className="border border-black p-2"
+            value={loggedInuser}
+            onChange={(e) => setUserName(e.target.value)}
+          />
+
             <div className="resto-container">
              
             {filterRestraunt.map((res) =>{
