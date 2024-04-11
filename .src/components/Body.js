@@ -72,7 +72,7 @@ return listRestraunt.length === 0 ? <ShimmerUI></ShimmerUI> : (
             <div className="resto-container">
              
             {filterRestraunt.map((res) =>{
-             return <Link to={'/restraunt/'+res.info.id}>{res.info.isOpen ?(<Promotedcomponent resData = {res}/>) : (<RestoCard  resData ={res}/>)}</Link>})}
+             return <Link to={'/restraunt/'+res.info.id} key={res?.info?.id}>{res.info.isOpen ?(<Promotedcomponent resData = {res}/>) : (<RestoCard  resData ={res}/>)}</Link>})}
             </div>
         </div>
 )

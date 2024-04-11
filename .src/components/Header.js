@@ -11,13 +11,14 @@ const Header = () => {
     const cartItems = useSelector((store) => store.cart1.items1 )
 console.log(cartItems,'cartItems1')
     return(
-        <div className="logo-container">
+        <div className="">
+        <div className="logo-container flex">
         <div className="logo">
-            <img src={LOGO_URL}/>
+            <img className="w-24" src={LOGO_URL}/>
         </div>
         <div className="nav-items">
             <ul>
-                <li>Onlinestatus : {onlinestatus ? 'green' : 'red'}</li>
+                <li className="text-3xl font-bold underline">Onlinestatus : {onlinestatus ? 'green' : 'red'}</li>
                 <li>
 
                     <Link to='/'>Home</Link></li>
@@ -29,6 +30,7 @@ console.log(cartItems,'cartItems1')
                 }}>{loginbtn}</button></li>
                 <li>{loggedInuser}</li>
             </ul>
+        </div>
         </div>
         </div>
     )
