@@ -2,8 +2,8 @@ import RestoCard, {Promotedlabel} from "./RestrauntCard.js";
 import { useState, useEffect, useContext } from "react";
 import ShimmerUI from "./ShimmerUI.js";
 import { Link } from "react-router-dom";
-import useOnlinestatus from "../../utls/useOnlineStatus.js";
-import UserContext from "../../utls/UserContext.js";
+import useOnlinestatus from "../utls/useOnlineStatus.js";
+import UserContext from "../utls/UserContext.js";
 
 const Body = () => {
 
@@ -45,13 +45,14 @@ return <h1>Check your internet connection and try again</h1>
 
 return listRestraunt.length === 0 ? <ShimmerUI></ShimmerUI> : (
         <div className="body">
-            <div className="filter">
-                <input className="filtername" value={searchText} 
+             <div className="filter flex">
+            <div className="search m-4 p-4 flex items-center">
+                <input  className="border border-solid border-black" value={searchText} 
                 onChange={(e)=>{
                     setSearchText(e.target.value)
                 }}  
                 ></input>
-            <button className="filter-btn"
+            <button className="px-4 py-2 bg-green-100 m-4 rounded-lg"
             onClick={() =>{
 
              
@@ -62,17 +63,21 @@ return listRestraunt.length === 0 ? <ShimmerUI></ShimmerUI> : (
             }
             >search</button>
             </div>
+            <div className="search m-4 p-4 flex items-center">
             <label>UserName: </label>
             <input
-            className="border border-black p-2"
+            className="border border-solid border-black m-2 pl-2"
             value={loggedInuser}
             onChange={(e) => setUserName(e.target.value)}
           />
-
-            <div className="resto-container">
+</div>
+</div>
+<div className="container mx-auto px-4">
+            <div className="flex justify-between flex-wrap">
              
             {filterRestraunt.map((res) =>{
              return <Link to={'/restraunt/'+res.info.id} key={res?.info?.id}>{res.info.isOpen ?(<Promotedcomponent resData = {res}/>) : (<RestoCard  resData ={res}/>)}</Link>})}
+            </div>
             </div>
         </div>
 )

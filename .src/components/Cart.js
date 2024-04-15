@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import Accordionbody from "./Accordionbody";
-import { clearItem } from "../../utls/Cartslice";
+import { clearItem } from "../utls/Cartslice";
 
 const Cart = () => {
     

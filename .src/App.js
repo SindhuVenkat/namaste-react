@@ -1,13 +1,13 @@
 import React, {Suspense, useEffect, useState} from "react"
 import  ReactDOM from "react-dom/client"
-import Header from "./.src/components/Header";
-import Body from "./.src/components/Body";
+import Header from "./components/Header";
+import Body from "./components/Body";
 import {createBrowserRouter, RouterProvider, Outlet} from "react-router-dom"
 //import About from "./.src/components/About";
-import Contact from "./.src/components/Contact";
-import Cart from "./.src/components/Cart";
-import RestrauntDetailPage from "./.src/components/RestrauntDetailPage";
-import Error from "./.src/components/Error";
+import Contact from "./components/Contact";
+import Cart from "./components/Cart";
+import RestrauntDetailPage from "./components/RestrauntDetailPage";
+import Error from "./components/Error";
 import { lazy } from "react";
 import UserContext from "./utls/UserContext";
 import { Provider } from "react-redux";
@@ -35,7 +35,7 @@ const AppLayout =() => {
     )
 }
 
-const About = lazy(() => import("./.src/components/About"))
+const About = lazy(() => import("./components/About"))
 
 const router = createBrowserRouter([{
     path:'/',
